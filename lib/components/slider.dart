@@ -64,32 +64,30 @@ class _homeSliderState extends State<homeSlider> {
       bottom: 10,
       left: 0,
       right: 0,
-      child: Container(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: List.generate(widget.slider_items.length, (int index) {
-            return GestureDetector(
-              onTap: () {
-                _controller.animateToPage(
-                  index,
-                  duration: Duration(milliseconds: 350),
-                );
-                setState(() {});
-              },
-              child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 8),
-                width: _currentIndex == index ? 75 : 25,
-                height: 5,
-                decoration: BoxDecoration(
-                  color: _currentIndex == index
-                      ? const Color.fromARGB(255, 80, 148, 204)
-                      : Colors.grey,
-                  borderRadius: BorderRadius.circular(5),
-                ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: List.generate(widget.slider_items.length, (int index) {
+          return GestureDetector(
+            onTap: () {
+              _controller.animateToPage(
+                index,
+                duration: Duration(milliseconds: 350),
+              );
+              setState(() {});
+            },
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: 8),
+              width: _currentIndex == index ? 75 : 25,
+              height: 6,
+              decoration: BoxDecoration(
+                color: _currentIndex == index
+                    ? const Color.fromARGB(255, 217, 223, 228)
+                    : const Color.fromARGB(255, 122, 120, 120),
+                borderRadius: BorderRadius.circular(5),
               ),
-            );
-          }),
-        ),
+            ),
+          );
+        }),
       ),
     );
   }
